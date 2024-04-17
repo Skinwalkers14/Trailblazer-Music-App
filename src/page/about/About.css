@@ -8,8 +8,8 @@
   gap: 15px;
   align-items: center;
   color: var(--primary-text-color);
-  background: rgb(198, 144, 154);
-  border: 1px solid var(--border-color);
+  background: gray;
+  border: 2px solid whitesmoke;
   padding: 20px;
   border-radius: 10px;
   width: 100%;
