@@ -1,0 +1,37 @@
+.explore-list-container {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align items horizontally */
+}
+
+.explore-list-container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.explore-card-list {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 10px;
+  justify-content: flex-start; /* Start align items horizontally */
+  width: 100%; /* Ensure the width is 100% */
+}
+
+.explore-card-list > * {
+  flex: 0 0 auto; /* Prevent items from shrinking */
+}
+
+@media (max-width: 426px) {
+  .explore-list-container h1 {
+    font-size: 22px;
+  }
+  
+  .explore-card-list {
+    gap: 15px;
+    padding: 5px;
+    justify-content: center; /* Center align items horizontally for mobile */
+  }
+}

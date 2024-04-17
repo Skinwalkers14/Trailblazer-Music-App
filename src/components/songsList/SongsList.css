@@ -1,0 +1,33 @@
+.songs-list-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.songs-list-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 0 5px;
+  scrollbar-width: none; /* Firefox */
+}
+.songs-list-top-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.view-all {
+  background: none;
+  border: none;
+  color: white;
+}
+.songs-list-title {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+@media (max-width: 426px) {
+  .songs-list-title {
+    font-size: 20px;
+  }
+}

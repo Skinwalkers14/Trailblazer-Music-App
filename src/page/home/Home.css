@@ -1,0 +1,25 @@
+.home-section {
+  position: relative;
+  padding-bottom: 150px;
+}
+.local-playlist-container {
+  border-top: 1px solid pink;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: gray;
+}
+.local-playlist-container p {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 14px;
+}
+.playlist-delete-btn {
+  border: none;
+  background: none;
+  width: 25px;
+  height: 25px;
+  color: gray;
+  cursor: pointer;
+}
