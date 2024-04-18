@@ -4,13 +4,14 @@
 
 ## Features
 
-- Best Streaming Quality
-- Trending and New Released songs list
-- Play youtube song as audio only
-- YouTube Search Support
-- Controls player from notification
-- Next/Prev song track controls
 - No Ads
+- Streaming Quality
+- Trending and New Released songs list
+- Play Youtube Songs Audio
+- YouTube Searches
+- Trending Songs and New Released List updated daily
+- Next/Preveous Song Control
+
 
 
 ## Technology used
