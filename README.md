@@ -1,6 +1,6 @@
 # trailblazer
 
-- **A progressive music app made with Javascript using React jS and YouTube Api that allows user to discover and listen to new music from around the world. The website features a clean and modern design, a user-friendly interface, and a powerful search feature of youtube.**
+- **Web based Music Audio application made with Javascript using React jS and YouTube Api that allows users to discover and listen to new music through youtube audio. The website has a user-friendly interface, a visually appealing design and the complete search feature of youtube.**
 
 ## Features
 
