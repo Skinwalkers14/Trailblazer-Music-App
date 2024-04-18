@@ -11,6 +11,7 @@
 - YouTube Searches
 - Trending Songs and New Released List updated daily
 - Next/Preveous Song Control
+- Volume Control
 
 
 
