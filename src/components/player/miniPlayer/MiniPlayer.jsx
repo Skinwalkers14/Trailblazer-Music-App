@@ -36,32 +36,6 @@ const MiniPlayer = ({
     dispatch(addSongInfo({}));
     localStorage.removeItem("currentSongInfo");
   };
-
-  useEffect(() => {
-
-    const checkAndResetStartTime = () => {
-      console.log("Checking and resetting start time...");
-    
-      if (audioRef.current) {
-        console.log("audioRef is available");
-        
-        const current = audioRef.current;
-        
-        
-        console.log("current time:", current);
-        
-      }
-    };
-   
-    
-
-    const interval = setInterval(checkAndResetStartTime, 2000); // Update every half second
-
-    return () => {
-      clearInterval(interval); // Cleanup interval on component unmount
-    };
-  }, []);
-
   return (
     <div
       className="mini-player-section"
@@ -105,7 +79,7 @@ const MiniPlayer = ({
               className="audio-play-pause  cur-pointer"
               onClick={() => setIsPlaying(!isPlaying)}
             >
-              {(isPlaying) && audioRef.current.paused ? (
+              {(!isPlaying)  ? (
                 <BsPlayCircleFill
                   style={{
                     width: "100%",
@@ -141,10 +115,6 @@ const MiniPlayer = ({
             <BsFillSkipEndFill style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
-
-        {/* <div className="player-maximize-wrapper" onClick={() => dispatch(addSongInfo({ ...currentSong, miniPlayerActive: false }))}>
-          <BsChevronUp style={{ width: '100%', height: '100%' }} />
-        </div> */}
         <div
           className="player-close-wrapper  cur-pointer"
           onClick={handleClosePlayer}
