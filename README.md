@@ -6,7 +6,8 @@
  - Trending and New Released songs list updated daily
  - Play Youtube Songs Audio 
  - YouTube Searches
- - Next/Previous Song Control - Volume Control 
+ - Next/Previous Song Control 
+ - Volume Control 
  ## installation and setup instructions 
 1. installation: `npm install` 
 2. In the project directory, you can run: `npm run dev` Runs the app in the development mode.
