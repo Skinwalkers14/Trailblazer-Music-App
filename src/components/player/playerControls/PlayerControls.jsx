@@ -32,7 +32,7 @@ const PlayerControls = ({
   
 
   const handleSeek = (e) => {
-    console.log("e value:", e.currentTarget.value)
+    //("e value:", e.currentTarget.value)
     const time = e.currentTarget.value;
     audioRef.current.seekTo(time);
   };
@@ -40,7 +40,7 @@ const PlayerControls = ({
   useEffect(() => {
     const roundedVolume = Math.round(volumeLevel * 100) / 100; 
     audioRef.current.volume = roundedVolume;
-    console.log("Audio Ref Volume:", audioRef.current.volume);
+    //("Audio Ref Volume:", audioRef.current.volume);
     localStorage.setItem("localVolume", roundedVolume);
   }, [volumeLevel]);
 
@@ -50,7 +50,7 @@ const PlayerControls = ({
         const currentTime = audioRef.current.getCurrentTime();
         setTime(formatTime(currentTime));
         
-        // console.log(currentTime);
+        // //(currentTime);
       }
     }, 500); 
   
@@ -94,29 +94,29 @@ const PlayerControls = ({
   useEffect(() => {
 
     const checkAndResetStartTime = () => {
-      console.log("Checking and resetting start time...");
+      // //("Checking and resetting start time...");
     
       if (audioRef.current) {
-        console.log("audioRef is available");
+        // //("audioRef is available");
         
         const currentTime = audioRef.current.getCurrentTime();
         const duration = audioRef.current.getDuration();
         
-        console.log("current time:", currentTime);
-        console.log("duration:", duration);
+        // //("current time:", currentTime);
+        // //("duration:", duration);
     
         if (Auto && currentTime === duration) {
-          console.log("autoplay is true and current time is equal to duration");
+          //("autoplay is true and current time is equal to duration");
           
           // Reset the starting time to "00:00"
           audioRef.current.seekTo(0);
           // Play the song again
           audioRef.current.play();
         } else {
-          console.log("autoplay:", Auto);
+          // //("autoplay:", Auto);
         }
       } else {
-        console.log("audioRef is not available");
+        // //("audioRef is not available");
       }
     };
    
@@ -127,11 +127,7 @@ const PlayerControls = ({
     return () => {
       clearInterval(interval); // Cleanup interval on component unmount
     };
-  }, []);
-
-
-  
-  
+  }, [Auto]);
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60);

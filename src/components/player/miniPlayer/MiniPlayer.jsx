@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BsFillSkipEndFill,
   BsFillSkipStartFill,
@@ -36,6 +36,31 @@ const MiniPlayer = ({
     dispatch(addSongInfo({}));
     localStorage.removeItem("currentSongInfo");
   };
+
+  useEffect(() => {
+
+    const checkAndResetStartTime = () => {
+      console.log("Checking and resetting start time...");
+    
+      if (audioRef.current) {
+        console.log("audioRef is available");
+        
+        const current = audioRef.current;
+        
+        
+        console.log("current time:", current);
+        
+      }
+    };
+   
+    
+
+    const interval = setInterval(checkAndResetStartTime, 2000); // Update every half second
+
+    return () => {
+      clearInterval(interval); // Cleanup interval on component unmount
+    };
+  }, []);
 
   return (
     <div
@@ -80,7 +105,7 @@ const MiniPlayer = ({
               className="audio-play-pause  cur-pointer"
               onClick={() => setIsPlaying(!isPlaying)}
             >
-              {(!isPlaying) && audioRef.current?.paused ? (
+              {(isPlaying) && audioRef.current.paused ? (
                 <BsPlayCircleFill
                   style={{
                     width: "100%",

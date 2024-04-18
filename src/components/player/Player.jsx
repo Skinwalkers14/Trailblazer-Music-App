@@ -374,6 +374,7 @@ const Player = () => {
               onPlaying();
               setTimeout(checkAndResetStartTime, 2000);
             }}
+            autoplay={autoPlay}
             onCanPlay={() => setAudioLoading(false)}
             onEnded={() => autoPlay && handleNext()}
             volume={volume}
