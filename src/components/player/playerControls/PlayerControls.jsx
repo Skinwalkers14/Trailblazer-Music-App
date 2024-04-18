@@ -23,34 +23,17 @@ const PlayerControls = ({
   setAutoPlay,
   mapVideoId,
   currentIndex,
+  Newvolume,
+  SetNewvolume
 }) => {
-  const localVolume = localStorage.getItem("localVolume") || 1.0;
-  const [volumeLevel, setVolumeLevel] = useState(localVolume);
   const [bufferedAmount, setBufferedAmount] = useState(0);
   const [Time, setTime] = useState("00:00")
   const [Auto, SetAuto] = useState(true);
-  
-
-  const handleSeek = (e) => {
-    //("e value:", e.currentTarget.value)
-    const time = e.currentTarget.value;
-    audioRef.current.seekTo(time);
-  };
-
-  useEffect(() => {
-    const roundedVolume = Math.round(volumeLevel * 100) / 100; 
-    audioRef.current.volume = roundedVolume;
-    //("Audio Ref Volume:", audioRef.current.volume);
-    localStorage.setItem("localVolume", roundedVolume);
-  }, [volumeLevel]);
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       if (audioRef.current) {
         const currentTime = audioRef.current.getCurrentTime();
         setTime(formatTime(currentTime));
-        
-        // //(currentTime);
       }
     }, 500); 
   
@@ -59,8 +42,6 @@ const PlayerControls = ({
     };
   }, [audioRef]);
   
-  
-
   useEffect(() => {
     try {
       isPlaying ? audioRef.current.play() : audioRef.current.pause();
@@ -82,10 +63,7 @@ const PlayerControls = ({
         setBufferedAmount(buffered);
       }
     };
-    
-
     const interval = setInterval(calculateBufferedAmount, 500); // Update every half second
-
     return () => {
       clearInterval(interval); // Cleanup interval on component unmount
     };
@@ -94,36 +72,14 @@ const PlayerControls = ({
   useEffect(() => {
 
     const checkAndResetStartTime = () => {
-      // //("Checking and resetting start time...");
-    
       if (audioRef.current) {
-        // //("audioRef is available");
-        
         const currentTime = audioRef.current.getCurrentTime();
         const duration = audioRef.current.getDuration();
-        
-        // //("current time:", currentTime);
-        // //("duration:", duration);
-    
         if (Auto && currentTime === duration) {
-          //("autoplay is true and current time is equal to duration");
-          
-          // Reset the starting time to "00:00"
-          audioRef.current.seekTo(0);
-          // Play the song again
-          audioRef.current.play();
-        } else {
-          // //("autoplay:", Auto);
-        }
-      } else {
-        // //("audioRef is not available");
+          audioRef.current.seekTo(0); }
       }
     };
-   
-    
-
     const interval = setInterval(checkAndResetStartTime, 2000); // Update every half second
-
     return () => {
       clearInterval(interval); // Cleanup interval on component unmount
     };
@@ -237,8 +193,8 @@ const PlayerControls = ({
             min={0.0}
             max={1.0}
             step={0.01}
-            value={volumeLevel}
-            onChange={(e) => setVolumeLevel(e.target.valueAsNumber)}
+            value={Newvolume}
+            onChange={(e) => SetNewvolume(e.target.value)}
           />
         </div>
       </div>

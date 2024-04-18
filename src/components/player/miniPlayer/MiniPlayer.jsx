@@ -115,6 +115,10 @@ const MiniPlayer = ({
             <BsFillSkipEndFill style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
+
+        {/* <div className="player-maximize-wrapper" onClick={() => dispatch(addSongInfo({ ...currentSong, miniPlayerActive: false }))}>
+          <BsChevronUp style={{ width: '100%', height: '100%' }} />
+        </div> */}
         <div
           className="player-close-wrapper  cur-pointer"
           onClick={handleClosePlayer}

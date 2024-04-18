@@ -18,12 +18,13 @@ import GetAudioDuration from '../../api/GetAudioDuration'
 
 const Player = () => {
   const [songUrl, setSongUrl] = useState("");
+  const [Newvolume, SetNewvolume] = useState(1.0);
   const [songsInfo, setSongsInfo] = useState([]);
   const [audioLoading, setAudioLoading] = useState(false);
   const [songsList, setSongsList] = useState([]);
   const [alertMessage, setAlertMessage] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
-  const [autoPlay, setAutoPlay] = useState(false);
+  const [autoPlay, setAutoPlay] = useState(true);
   const [playerInfo, setPlayerInfo] = useState({
     isMoreInfoClick: false,
     isAudioQualityClick: false,
@@ -226,7 +227,6 @@ const Player = () => {
       navigator.mediaSession.setActionHandler("nexttrack", null);
     }
   }
-
   useEffect(() => {
     if (!miniPlayerActive) {
       document.body.style.overflowY = "hidden";
@@ -234,7 +234,6 @@ const Player = () => {
       document.body.style.overflowY = "auto";
     }
   }, [miniPlayerActive]);
-
   // scrolling song title
   const titleContainerRef = useRef(null);
   const titleRef = useRef(null);
@@ -247,7 +246,6 @@ const Player = () => {
     }
     // eslint-disable-next-line
   }, [titleRef.current]);
-
   // minimize player if back button press
   const { pathname } = useLocation();
 
@@ -260,12 +258,6 @@ const Player = () => {
 
     // eslint-disable-next-line
   }, [pathname]);
-
- 
-  
-  
-  
-
   return (
     <div
       className={`player-page-section ${miniPlayerActive ? "miniplayer-active" : ""
@@ -377,7 +369,7 @@ const Player = () => {
             autoplay={autoPlay}
             onCanPlay={() => setAudioLoading(false)}
             onEnded={() => autoPlay && handleNext()}
-            volume={volume}
+            volume={Newvolume}
             playing={isPlaying}
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
@@ -386,14 +378,11 @@ const Player = () => {
               setAlertMessage("Failed to play audio");
             }}
           />
-
-
           <PlayerControls
             audioRef={audioRef}
             progress={progress}
             audioLoading={audioLoading}
             audioDuration={dur}
-            // volume={volume}
             songsList={songsList}
             alertMessage={alertMessage}
             setAlertMessage={setAlertMessage}
@@ -405,11 +394,11 @@ const Player = () => {
             setAutoPlay={setAutoPlay}
             currentIndex={currentIndex}
             mapVideoId={mapVideoId}
-          // setSeekTime={setSeekTime}
+            Newvolume={Newvolume}
+            SetNewvolume={SetNewvolume}
           />
         </div>
       </div>
-
       {miniPlayerActive ? (
         <MiniPlayer
           songsInfo={songsInfo}
@@ -429,5 +418,4 @@ const Player = () => {
     </div>
   );
 };
-
 export default Player;
