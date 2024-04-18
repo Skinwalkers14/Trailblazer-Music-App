@@ -1,4 +1,5 @@
-# trailblazer - **Web based Music Audio application made with Javascript using React jS and YouTube Api that allows users to discover and listen to new music through youtube audio. The website has a user-friendly interface, a visually appealing design and the complete search feature of youtube.** 
+# trailblazer 
+- **Web based Music Audio application made with Javascript using React jS and YouTube Api that allows users to discover and listen to new music through youtube audio. The website has a user-friendly interface, a visually appealing design and the complete search feature of youtube.** 
 ## Features
  - No Ads
  - Streaming Quality
