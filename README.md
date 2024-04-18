@@ -2,11 +2,10 @@
 - **Web based Music Audio application made with Javascript using React jS and YouTube Api that allows users to discover and listen to new music through youtube audio. The website has a user-friendly interface, a visually appealing design and the complete search feature of youtube.** 
 ## Features
  - No Ads
- - Streaming Quality
- - Trending and New Released songs list 
+ - High Quality Streaming
+ - Trending and New Released songs list updated daily
  - Play Youtube Songs Audio 
  - YouTube Searches
- - Trending Songs and New Released List updated daily
  - Next/Preveous Song Control - Volume Control 
  ## installation and setup instructions 
 1. installation: `npm install` 
